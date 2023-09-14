@@ -1,0 +1,34 @@
+import discord
+import random
+from discord.ext import commands
+
+intents = discord.Intents.all()
+client = commands.Bot(command_prefix='!', intents=intents)
+
+@client.command()
+async def ship(ctx, user1: discord.User = None, user2: discord.User = None):
+    if user1 is None:
+        user1 = ctx.author
+
+    if user2 is None:
+        members = ctx.guild.members
+        member2 = random.choice(members)
+        user2 = member2
+
+    compatibility_percentage = random.randint(1, 100)
+
+    avatar_url1 = user1.avatar.url if user1.avatar else user1.default_avatar.url
+    avatar_url2 = user2.avatar.url if user2.avatar else user2.default_avatar.url
+
+    url = f"https://agg-api.vercel.app/ship?avatar1={avatar_url1}&avatar2={avatar_url2}&background=https://wallpapercave.com/wp/wp5075298.jpg&number={compatibility_percentage}"
+
+    embed = discord.Embed(
+        title=f'Ship {user1.name} and {user2.name}',
+        color=0xff00ff
+    )
+    embed.set_image(url=url)
+
+    await ctx.send(embed=embed)
+
+# Replace 'your bot token' with your bot's token
+client.run('your bot token')
