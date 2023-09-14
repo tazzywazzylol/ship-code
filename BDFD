@@ -1,0 +1,23 @@
+Create a new command, make the prefix $ship
+paste this:
+$nomention
+$deletecommand
+$title[ship <@$authorID> and <@$randomUserID>]
+$image[https://agg-api.vercel.app/ship?avatar1=$authorAvatar&avatar2=$userAvatar[$randomUserID]&background=https://wallpapercave.com/wp/wp5075298.jpg&number=$random[1;100]]
+$footer[code created by simplytaz]
+
+Create another new command, make the prefix ~ship
+paste this:
+$nomention
+$deletecommand
+$title[ship <@$authorID> and <@$mentioned[1]>]
+$image[https://agg-api.vercel.app/ship?avatar1=$authorAvatar&avatar2=$userAvatar[$mentioned[1]]&background=https://wallpapercave.com/wp/wp5075298.jpg&number=$random[1;100]]
+$footer[code created by simplytaz]
+
+Create another new command, make the prefix #ship
+paste this:
+$nomention
+$deletecommand
+$title[ship <@$mentioned[1]> and <@$mentioned[2]>]
+$image[https://agg-api.vercel.app/ship?avatar1=$userAvatar[$mentioned[1]]&avatar2=$userAvatar[$mentioned[2]]&background=https://wallpapercave.com/wp/wp5075298.jpg&number=$random[1;100]]
+$footer[code created by simplytaz]
